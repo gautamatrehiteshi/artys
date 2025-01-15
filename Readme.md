@@ -1,22 +1,26 @@
 # Initial Setup
 To create a hyperledger fabric network, follow the steps below:
-1. Move to directory BasicNetwork-2.0->artifacts-> channel
-2. Run the shell file ./create-artifacts.sh 
+1. Move to directory BasicNetwork-2.0->artifacts-> channel->config
+2. Run the ./script.sh command.This will download all the binaries required to create a fabric.
+3. Run pwd command in terminal and copy the path
+4. Run command "sudo nano ~/.bashrc" 
+5. At the end of the file add this line export PATH="$PATH:<copied value from step 3>/fabric-samples/bin and save the file.Close the terminal.
+6. Open a new terminal and move to directory BasicNetwork-2.0->artifacts-> channel.Run the command ./create-artifacts.sh. 
 This will generate the crypto configurations folder and the necessary required files to instantiate a network.
 This will also create genesis block and Organization files.
-3. After ensuring that these configurations are created again move to  BasicNetwork-2.0->artifacts directory.
-4. Run docker compose up -d command in order to up your network.
-5. Initially upon running the command it will pull the fabric dependencies required to up your network.
+7. After ensuring that these configurations are created again move to  BasicNetwork-2.0->artifacts directory.
+8. Run docker compose up -d command in order to up your network.
+9. Initially upon running the command it will pull the fabric dependencies required to up your network.
 Note: We might need to generate/create keyring and run this command, if there are any errors.
-6. Ensure that docker container for all the peers by running docker ps command, couch db are running which are defined in the configtx.yaml file.
+10. Ensure that docker container for all the peers by running docker ps command, couch db are running which are defined in the configtx.yaml file.
 # Creating and joining channel
-7. After ensuring that docker containers are running smoothly, move the directory BasicNetwork-2.0.
-8. Modify the createChannel.sh file and enable the createChannel function at the end of the file and comment out rest of the function.
-9. Run command ./createChannel.sh after the above step.
-10. After the channel has been created successfully, the peers are ready to join the channel.
-11. To make the peers join the channel again modify the createChannel.sh file and comment out the createChannel at the end of the file.
-12. Enable the commented out joinChannel function and execute the ./createChannel file.
-13. The peers will successfully join the channel upon running the command.
+1. After ensuring that docker containers are running smoothly, move the directory BasicNetwork-2.0.
+2. Modify the createChannel.sh file and enable the createChannel function at the end of the file and comment out rest of the function.
+3. Run command ./createChannel.sh after the above step.
+4. After the channel has been created successfully, the peers are ready to join the channel.
+5. To make the peers join the channel again modify the createChannel.sh file and comment out the createChannel at the end of the file.
+6. Enable the commented out joinChannel function and execute the ./createChannel file.
+7. The peers will successfully join the channel upon running the command.
 
 
 # Setting up Chaincode for the network
